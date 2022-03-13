@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
+import 'package:shodia_mama/models/product_model.dart';
 
 class DetailScreenController extends GetxController {
-  var selectedProduct = Get.arguments['item'];
+  ProductModel selectedProduct = Get.arguments['item'];
 }
