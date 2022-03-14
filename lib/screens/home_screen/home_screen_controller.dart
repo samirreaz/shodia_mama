@@ -7,22 +7,27 @@ import '../../service/api_status.dart';
 class HomeScreenController extends GetxController {
   RxList<ProductModel> dataList = <ProductModel>[].obs;
   var isLoaded = false.obs;
+  static int currentPage = 1;
+  // it's not the proper way to do it but it's just for the demo
+  static int totalPage = 34;
 
-  loadData() async {
-    var allData = await HttpServiceImplementation().fetchProductsData();
+  Future<bool> loadData({bool isRefresh = false}) async {
+    var allData = await HttpServiceImplementation()
+        .fetchProductsData(isRefresh: isRefresh);
 
     if (allData != null) {
       dataList.value = allData;
       isLoaded.value = true;
+      return true;
     } else {
-      return null;
+      return false;
     }
   }
 
-  @override
+  /* @override
   void onInit() async {
     super.onInit();
     loadData();
     print('products');
-  }
+  } */
 }

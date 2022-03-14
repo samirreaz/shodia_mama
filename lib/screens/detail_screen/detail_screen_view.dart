@@ -44,11 +44,11 @@ class DetailScreenView extends GetView<DetailScreenController> {
                         height: getProportionateScreenHeight(20),
                       ),
                       Text(
-                        'URL',
+                        'Click URL',
                         style: Theme.of(context).textTheme.bodyText1,
                       ),
                       Link(
-                        target: LinkTarget.self,
+                        target: LinkTarget.blank,
                         uri: Uri.parse(controller.selectedProduct.url),
                         builder: (context, followLink) => GestureDetector(
                           child: Text(
